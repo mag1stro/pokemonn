@@ -1,27 +1,67 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Имя → Страна</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Pokédex Game</title>
+  <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🌍 Где чаще встречается имя?</h1>
-    <div class="controls">
-      <input id="nameInput" type="text" placeholder="Введите имя...">
-      <button id="searchBtn">Узнать</button>
+  <div class="sidebar">
+    <button onclick="showPage('pokedex')">📖 Pokédex</button>
+    <button onclick="showPage('packs')">🎁 Открыть пак</button>
+    <button onclick="showPage('shop')">🏪 Магазин</button>
+    <button onclick="sellDuplicates()">💰 Продать дубликаты</button>
+    <div class="balance">💎 <span id="diamonds">0</span></div>
+  </div>
+
+  <div class="main">
+    <div id="pokedex" class="page">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg" class="logo">
+
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search your pokemon">
+        <select id="typeFilter">
+          <option value="all">All Types</option>
+          <option value="Grass">Grass</option>
+          <option value="Fire">Fire</option>
+          <option value="Water">Water</option>
+          <option value="Electric">Electric</option>
+          <option value="Poison">Poison</option>
+        </select>
+        <select id="rarityFilter">
+          <option value="all">All Rarities</option>
+          <option value="common">Common</option>
+          <option value="rare">Rare</option>
+          <option value="legendary">Legendary</option>
+          <option value="chromatic">Chromatic</option>
+        </select>
+        <select id="sortSelect">
+          <option value="az">A - Z</option>
+          <option value="za">Z - A</option>
+        </select>
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <div id="pokemonList"></div>
     </div>
-    <div id="status"></div>
-    <div id="result"></div>
+
+    <div id="packs" class="page hidden">
+      <h2>🎁 Открыть пак</h2>
+      <p id="packCooldown"></p>
+      <button id="openPackBtn">Открыть бесплатный пак</button>
+      <div id="openedPokemons"></div>
+    </div>
+
+    <div id="shop" class="page hidden">
+      <h2>🏪 Магазин</h2>
+      <p>Купи паки за 💎</p>
+      <button onclick="buyPack('normal')">Купить обычный пак (10💎)</button>
+      <button onclick="buyPack('rare')">Купить редкий пак (50💎)</button>
+    </div>
   </div>
 
-  <!-- Аниме-тянка -->
-  <div class="anime-girl">
-    <img src="./{AAD46BD3-2A06-4980-8610-C64B3E05FAE1}.png" alt="anime girl">
-  </div>
-
-  <script src="script.js" defer></script>
+  <script src="./pokemons.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
