@@ -1,0 +1,151 @@
+/* Центрируем контейнер */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Карточка поиска */
+.container {
+  width: 100%;
+  max-width: 650px;
+  background: rgba(20, 20, 20, 0.9);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #00d4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Контролы */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #2e2e2e;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  background: #3b3b3b;
+  box-shadow: 0 0 6px #00d4ff;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,212,255,0.6);
+}
+
+/* Блок статуса */
+#status {
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #bbb;
+}
+
+/* Карточки стран */
+.country {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUp 0.5s ease forwards;
+}
+
+.country:nth-child(1) { animation-delay: 0.1s; }
+.country:nth-child(2) { animation-delay: 0.2s; }
+.country:nth-child(3) { animation-delay: 0.3s; }
+.country:nth-child(4) { animation-delay: 0.4s; }
+
+.country img {
+  width: 50px;
+  height: 35px;
+  margin-right: 15px;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.country b {
+  color: #00d4ff;
+  margin-right: 5px;
+}
+
+/* Аниме-тянка */
+.anime-girl {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 150px;
+  z-index: 1000;
+  animation: bounce 2s infinite;
+}
+
+.anime-girl img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* подпрыгивание */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
